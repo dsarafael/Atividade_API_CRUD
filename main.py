@@ -1,7 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-app = FastAPI()
+# Como executar
+# uvicorn main:app --reload
+# Acesse no navegador:
+# http://localhost:8000/docs
+# app = FastAPI()
 
 # Modelo do Produto
 class Product(BaseModel):
@@ -60,3 +64,4 @@ def delete_product(product_id: int):
             products.remove(p)
             return {"message": "Produto removido"}
     raise HTTPException(status_code=404, detail="Produto não encontrado")
+
